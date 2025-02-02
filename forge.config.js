@@ -1,5 +1,6 @@
 const { FusesPlugin } = require('@electron-forge/plugin-fuses');
 const { FuseV1Options, FuseVersion } = require('@electron/fuses');
+const { PublisherGithub } = require('@electron-forge/publisher-github');
 
 module.exports = {
   packagerConfig: {
@@ -25,6 +26,19 @@ module.exports = {
     {
       name: '@electron-forge/maker-rpm',
       config: {},
+    },
+  ],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'AdFaustino',
+          name: 'my-first-electron-app',
+        },
+        prerelease: false,
+        draft: true,
+      },
     },
   ],
   plugins: [
